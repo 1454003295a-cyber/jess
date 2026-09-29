@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Mini Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, sans-serif;
+        }
+        body {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 12px;
+            color: #e2e8f0;
+        }
+        h2 {
+            font-size: 24px;
+            margin: 40px 0 16px;
+            color: #cbd5e1;
+        }
+        h3 {
+            font-size: 20px;
+            margin:24px 0 12px;
+        }
+        .form-block{
+            margin-bottom:32px;
+        }
+        .input-field{
+            width:100%;
+            min-height:80px;
+            background:#1e293b;
+            border:1px solid #475569;
+            border-radius:12px;
+            color:#fff;
+            padding:14px;
+            font-size:16px;
+            margin:8px 0 20px;
+        }
+        .card-container{
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+            gap:20px;
+            margin:20px 0;
+        }
+        .project-card{
+            background:#1e293b;
+            border-radius:12px;
+            overflow:hidden;
+            transition: transform 0.25s ease;
+        }
+        .project-card:hover{
+            transform: scale(1.03);
+        }
+        .card-img{
+            width:100%;
+            height:160px;
+            background:#334155;
+        }
+        .card-text{
+            padding:16px;
+        }
+        .check-item{
+            display:flex;
+            gap:12px;
+            align-items:flex-start;
+            margin:14px 0;
+        }
+        input[type="checkbox"]{
+            width:20px;
+            height:20px;
+            margin-top:4px;
+        }
+        .blue-note{
+            color:#38bdf8;
+            text-align:center;
+            font-size:20px;
+            margin:30px 0;
+            line-height:1.6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Portfolio Mini Website Project</h1>
+    <p>AI-assisted web development worksheet</p>
+
+    <!-- 1. Three improvements section -->
+    <div class="form-block">
+        <h2>Suggest three possible improvements to this project.</h2>
+        <p>For each improvement, explain:<br>
+        - user benefit<br>
+        - implementation difficulty: Low / Medium / High<br>
+        - risk of affecting existing features: Low / Medium / High<br>
+        Keep all suggestions within the current project scope.<br>
+        Do not implement anything.</p>
+        <div class="input-field">
+Improvement 1: Add hover zoom effect for project card placeholder images
+- User benefit: Visitors get clear visual feedback when hovering over projects, making the portfolio feel more interactive and polished.
+- Implementation difficulty: Low
+- Risk of affecting existing features: Low
+
+Improvement 2: Add smooth scroll animation when jumping between page sections
+- User benefit: Page navigation becomes more comfortable, reducing jarring abrupt jumps while browsing the portfolio.
+- Implementation difficulty: Medium
+- Risk of affecting existing features: Medium
+
+Improvement3: Add short alt text descriptions for all project placeholder images
+- User benefit: Improves website accessibility for screen reader users, following standard web accessibility best practices.
+- Implementation difficulty: Low
+- Risk of affecting existing features: Low
+        </div>
+
+        <h3>My choice:</h3>
+        <textarea class="input-field">Add a subtle hover zoom effect to the placeholder images on each project card</textarea>
+
+        <h3>Why:</h3>
+        <textarea class="input-field">It brings noticeable interactive improvement for visitors, has low coding difficulty, and barely disturbs the current page layout and functions.</textarea>
+
+        <h3>What must remain unchanged:</h3>
+        <textarea class="input-field">Original card text content, overall colour scheme, existing hover styles for card backgrounds, responsive layout for mobile/desktop and all other website sections.</textarea>
+    </div>
+
+    <!-- Project card preview (the feature we add) -->
+    <h2>Project Gallery Preview</h2>
+    <div class="card-container">
+        <div class="project-card">
+            <div class="card-img"></div>
+            <div class="card-text">
+                <h4>Project 1</h4>
+                <p>Sample portfolio project</p>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="card-img"></div>
+            <div class="card-text">
+                <h4>Project 2</h4>
+                <p>Sample portfolio project</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Checklist -->
+    <div class="form-block">
+        <h2>FINAL CHECKLIST</h2>
+        <div class="check-item">
+            <input type="checkbox" checked>
+            <span>I clarified my idea</span>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" checked>
+            <span>I created a specification</span>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" checked>
+            <span>I built Version 1</span>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" checked>
+            <span>I inspected before changing</span>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" checked>
+            <span>I planned my change</span>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" checked>
+            <span>I defined what AI was allowed to change</span>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" checked>
+            <span>I defined what must remain unchanged</span>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" checked>
+            <span>I tested the result</span>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" checked>
+            <span>I used evidence when debugging</span>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" checked>
+            <span>I verified the final result</span>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" checked>
+            <span>I saved/exported my project</span>
+        </div>
+    </div>
+
+    <!-- Reflection -->
+    <div class="form-block">
+        <h2>REFLECTION</h2>
+        <h3>One thing AI originally guessed incorrectly:</h3>
+        <textarea class="input-field">AI tried to add extra new sections to the webpage, instead of only adding placeholder images inside project cards.</textarea>
+
+        <h3>The most useful boundary I gave AI:</h3>
+        <textarea class="input-field">I told AI it could only edit the project gallery cards and must leave all other website content unchanged.</textarea>
+
+        <h3>One change I prevented AI from making:</h3>
+        <textarea class="input-field">I stopped AI from rewriting the original website text and changing the dark navy colour theme.</textarea>
+
+        <h3>The most useful prompt pattern:</h3>
+        <textarea class="input-field">Define what AI can change, what must stay the same, describe expected results and ask for only the smallest required edits.</textarea>
+
+        <h3>AI can generate …</h3>
+        <textarea class="input-field">HTML and CSS code to add small features to my website, but I control the scope and approve every change.</textarea>
+
+        <h3>I still need to decide …</h3>
+        <textarea class="input-field">What real images I will replace the placeholder pictures with for my final portfolio.</textarea>
+
+        <div class="blue-note">
+AI can generate. You decide what changes, what stays, and when it is done.
+        </div>
+    </div>
+
+</body>
+</html>
