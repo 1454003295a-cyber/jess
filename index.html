@@ -143,6 +143,89 @@
     .knowledge-item:nth-child(3) { border-top-color: var(--red); }
     .knowledge-item:nth-child(4) { border-top-color: var(--yellow); }
     .knowledge-item p { margin-bottom: 0; color: var(--muted); }
+    .assignment-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: 26px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+    .assignment-summary div { min-height: 112px; padding: 22px; border-right: 1px solid var(--line); }
+    .assignment-summary div:last-child { border-right: 0; }
+    .assignment-summary strong { display: block; margin-bottom: 4px; font-size: 28px; line-height: 1.2; }
+    .assignment-summary span { color: var(--muted); font-size: 13px; }
+    .assignment-alert {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+      padding: 22px 24px;
+      border-left: 4px solid var(--red);
+      background: #fff7f4;
+    }
+    .assignment-alert strong { color: var(--red); }
+    .assignment-alert p { margin-bottom: 0; color: var(--muted); }
+    .course-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .course-filter {
+      min-height: 40px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--muted);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .course-filter[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: #fff; }
+    .course-board { display: grid; gap: 24px; }
+    .course-block { border-top: 4px solid var(--green); background: var(--surface); }
+    .course-block[data-course="LC5025"] { border-top-color: var(--blue); }
+    .course-block[data-course="LC5032"] { border-top-color: var(--red); }
+    .course-block[hidden] { display: none; }
+    .course-heading {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 24px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-top: 0;
+    }
+    .course-code { font-size: 22px; font-weight: 800; }
+    .course-heading p { margin-bottom: 0; color: var(--muted); }
+    .assignment-list { border-right: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .assignment-item {
+      display: grid;
+      grid-template-columns: 152px minmax(0, 1fr) 120px;
+      gap: 22px;
+      align-items: start;
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .assignment-date { color: var(--red); font-weight: 800; }
+    .assignment-date small { display: block; color: var(--muted); font-weight: 500; }
+    .assignment-item h3 { margin-bottom: 6px; font-size: 18px; }
+    .assignment-item p { margin-bottom: 8px; color: var(--muted); font-size: 14px; }
+    .assignment-item p:last-child { margin-bottom: 0; }
+    .assignment-meta { color: var(--muted); font-size: 12px; }
+    .status {
+      justify-self: end;
+      min-width: 92px;
+      padding: 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .status.progress { border-color: #e6b7ad; background: #fff3f0; color: #a83b31; }
+    .status.weekly { border-color: #a9c9bd; background: #f0f8f5; color: var(--green); }
+    .assignment-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+    .assignment-links a { color: var(--blue); font-size: 13px; font-weight: 700; text-decoration: none; }
+    .assignment-links a:hover, .assignment-links a:focus-visible { text-decoration: underline; }
+    .privacy-note { margin: 20px 0 0; color: var(--muted); font-size: 13px; }
     .training-band { background: var(--ink); color: #fff; }
     .training-band .section { border-bottom: 0; }
     .training-band .section-kicker { color: #82cdb7; }
@@ -170,6 +253,7 @@
       .method { grid-template-columns: repeat(3, 1fr); }
       .method-step:nth-child(3) { border-right: 0; }
       .method-step:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
+      .assignment-item { grid-template-columns: 128px minmax(0, 1fr) 105px; gap: 16px; }
     }
     @media (max-width: 620px) {
       .shell { width: min(calc(100% - 28px), var(--max)); }
@@ -191,6 +275,11 @@
       .method-step:nth-last-child(-n+2) { border-bottom: 0; }
       .training-item:nth-child(odd), .training-item:nth-child(even) { padding: 22px 0; border-left: 0; }
       .log { grid-template-columns: 1fr; gap: 6px; }
+      .assignment-summary { grid-template-columns: 1fr; }
+      .assignment-summary div { min-height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+      .assignment-summary div:last-child { border-bottom: 0; }
+      .assignment-alert, .course-heading, .assignment-item { grid-template-columns: 1fr; gap: 8px; }
+      .status { justify-self: start; }
       .footer-row { flex-direction: column; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -205,6 +294,7 @@
       <a class="brand" href="#top">Jess AI Learning Lab</a>
       <div class="nav-links">
         <a href="#journey">学习路径</a>
+        <a href="#assignments">课程作业</a>
         <a href="#projects">实践项目</a>
         <a href="#method">提示词方法</a>
         <a href="#training">培训方向</a>
@@ -225,7 +315,7 @@
       <div class="hero-meta">
         <span><strong>开始记录</strong> 2026</span>
         <span><strong>当前阶段</strong> 学习与实践</span>
-        <span><strong>最近更新</strong> 2026.09.29</span>
+        <span><strong>最近更新</strong> 2026.10.02</span>
       </div>
     </section>
 
@@ -248,6 +338,64 @@
         <article class="timeline-item"><p class="timeline-label">STEP 04 · BUILD</p><h3>制作真实作品</h3><p>将内容制作成Word学习手册、课程视觉图和可公开访问的GitHub Pages网站。</p></article>
         <article class="timeline-item"><p class="timeline-label">STEP 05 · SHARE</p><h3>转化为培训案例</h3><p>下一阶段会把个人经验整理成适合初学者和商业团队的短培训模块。</p></article>
       </div>
+    </section>
+
+    <section class="section shell" id="assignments" aria-labelledby="assignments-title">
+      <div class="section-head"><div class="section-kicker">ASSIGNMENT BOARD</div><div><h2 id="assignments-title">课程作业中心</h2><p class="section-intro">按课程编号记录正式作业、课堂任务、截止时间与当前进度。日期以正式课程文件为准，课堂更新会注明来源与是否计分。</p></div></div>
+
+      <div class="assignment-summary" aria-label="作业概况">
+        <div><strong>3</strong><span>正在追踪的课程</span></div>
+        <div><strong>7 Oct</strong><span>最近截止：LC5023 Response Essay</span></div>
+        <div><strong>816</strong><span>LC5023 消息草稿约计词数</span></div>
+      </div>
+
+      <div class="assignment-alert">
+        <strong>最新更新<br>2026.10.02</strong>
+        <div><h3>LC5023 论文正在写作</h3><p>Introduction、Article Summary 与 Critical Analysis 已形成消息草稿，约816词；下一步是同步回Word、完成教学启示与结论，并逐项检查APA 7、引文原页和Appendix。注意：当前Word封面误写为LC5032，提交前必须更正为LC5023。</p></div>
+      </div>
+
+      <div class="course-filters" role="group" aria-label="按课程筛选作业">
+        <button class="course-filter" type="button" data-filter="all" aria-pressed="true">全部课程</button>
+        <button class="course-filter" type="button" data-filter="LC5023" aria-pressed="false">LC5023</button>
+        <button class="course-filter" type="button" data-filter="LC5025" aria-pressed="false">LC5025</button>
+        <button class="course-filter" type="button" data-filter="LC5032" aria-pressed="false">LC5032</button>
+      </div>
+
+      <div class="course-board">
+        <section class="course-block" data-course="LC5023" aria-labelledby="lc5023-title">
+          <div class="course-heading"><div class="course-code" id="lc5023-title">LC5023</div><div><h3>学术阅读与回应写作</h3><p>当前重点：以Yang et al. (2025)的Vocab+研究为核心，完成批判性Response Essay。</p><div class="assignment-links"><a href="https://studenthkccpolyuedu.sharepoint.com/sites/Section_2026_1_LC5023_A01/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F2026%5F1%5FLC5023%5FA01%2FShared%20Documents%2FGeneral%2FRecordings%2FMeeting%20in%20General%2D20260925%5F100004%2DMeeting%20Recording%2Emp4" target="_blank" rel="noreferrer">9月25日课堂录像（需学校登录）</a></div></div></div>
+          <div class="assignment-list">
+            <article class="assignment-item"><div class="assignment-date">7 Oct · 18:00<small>最近截止</small></div><div><h3>Individual Assignment 1: Response Essay</h3><p>1,000–1,200词，APA 7，通过Turnitin提交。当前主题：移动辅助、自我调节与小学英语词汇学习。</p><p class="assignment-meta">进度：消息草稿约816词；Word文件当前只保存了Introduction。待完成：同步全文、Pedagogical Implications、Conclusion、准确词数、引文核对与Appendix。</p></div><span class="status progress">进行中</span></article>
+            <article class="assignment-item"><div class="assignment-date">21 Oct · 18:00</div><div><h3>Group Multimedia Proposal</h3><p>小组多媒体提案，视频最长15分钟，不使用AI配音。</p></div><span class="status">待开始</span></article>
+            <article class="assignment-item"><div class="assignment-date">23 Oct<small>课堂完成</small></div><div><h3>Group Proposal Peer Review</h3><p>个人反思，并评价另外两个小组；每份约150–200词。</p></div><span class="status">待开始</span></article>
+            <article class="assignment-item"><div class="assignment-date">28 Oct · 18:00</div><div><h3>Individual Assignment 2A: Reflective Report Draft</h3><p>在Academic Writing Platform提交反思报告初稿。</p></div><span class="status">待开始</span></article>
+            <article class="assignment-item"><div class="assignment-date">11 Nov · 18:00</div><div><h3>Individual Assignment 2B &amp; 2C</h3><p>提交1,200–1,500词修订报告（标示修改）及Online Inquiry Diary。</p></div><span class="status">待开始</span></article>
+          </div>
+        </section>
+
+        <section class="course-block" data-course="LC5025" aria-labelledby="lc5025-title">
+          <div class="course-heading"><div class="course-code" id="lc5025-title">LC5025</div><div><h3>研究设计与汇报</h3><p>从小组研究计划逐步推进到证据汇报、课堂考试和个人创新设计。</p></div></div>
+          <div class="assignment-list">
+            <article class="assignment-item"><div class="assignment-date">10 Oct · 23:59</div><div><h3>Group Research Proposal</h3><p>提交小组研究计划。</p></div><span class="status progress">准备中</span></article>
+            <article class="assignment-item"><div class="assignment-date">16 Oct · 23:59</div><div><h3>Research Evidence &amp; Presentation PPT</h3><p>提交研究证据及汇报幻灯片。</p></div><span class="status">待开始</span></article>
+            <article class="assignment-item"><div class="assignment-date">17 Oct<small>Classes 11–12</small></div><div><h3>Group Research Presentation</h3><p>40分钟小组汇报及问答。</p></div><span class="status">待开始</span></article>
+            <article class="assignment-item"><div class="assignment-date">24 Oct<small>Class 13</small></div><div><h3>Individual Assignment A: Methods Review</h3><p>120分钟课堂考试；不可使用电子设备或生成式AI。</p></div><span class="status">待开始</span></article>
+            <article class="assignment-item"><div class="assignment-date">31 Oct · 22:00</div><div><h3>Individual Assignment B: Research Innovation Design</h3><p>提交8–10分钟录制内容。</p></div><span class="status">待开始</span></article>
+          </div>
+        </section>
+
+        <section class="course-block" data-course="LC5032" aria-labelledby="lc5032-title">
+          <div class="course-heading"><div class="course-code" id="lc5032-title">LC5032</div><div><h3>Technology-integrated Language Pedagogies</h3><p>正式作业聚焦AI辅助故事教学设计、教学展示及个人批判性反思。</p></div></div>
+          <div class="assignment-list">
+            <article class="assignment-item"><div class="assignment-date">本周更新<small>不计分课堂练习</small></div><div><h3>Story Writing &amp; TLC Practice</h3><p>完成Worksheets 3.1和3.2；写约150词第一人称过去时故事，包含意外事件、清楚冲突和个人领悟，并上传Padlet。可选做：生成一张表现关键时刻的图片。</p><p class="assignment-meta">教学结构：Setting Context → Modelling/Deconstruction → Joint Construction → Independent Construction。AI材料需标记、核实和改编，并考虑同意、所有权、匿名与偏见。</p></div><span class="status weekly">每周任务</span></article>
+            <article class="assignment-item"><div class="assignment-date">17 Oct · 23:55</div><div><h3>Group Teaching Portfolio</h3><p>提交Lesson Plan与Language Teaching Materials；以故事教学为核心，GenAI作为辅助工具。</p></div><span class="status progress">进行中</span></article>
+            <article class="assignment-item"><div class="assignment-date">18 Oct</div><div><h3>Group Teaching Demonstration</h3><p>15分钟Mini Lesson及5分钟问答。</p></div><span class="status progress">准备中</span></article>
+            <article class="assignment-item"><div class="assignment-date">25 Oct · 23:55</div><div><h3>Individual Critical Reflection</h3><p>1,200词（±10%），至少6项学术来源，APA 7；反思AI辅助故事策略、材料与展示效果、伦理问题及回应方案。</p></div><span class="status">待开始</span></article>
+            <article class="assignment-item"><div class="assignment-date">Week 5 &amp; 6<small>课堂练习</small></div><div><h3>Two Peer Observations</h3><p>两篇课堂观察，每篇约300词：教师示范课与其他小组Mini Lesson。</p></div><span class="status weekly">课堂任务</span></article>
+          </div>
+        </section>
+      </div>
+      <p class="privacy-note">隐私说明：此公开页面只记录任务摘要与学习进度，不公开学号、账号、完整论文、私人课堂转录或受版权保护的课程文件。</p>
     </section>
 
     <section class="section shell" id="projects" aria-labelledby="projects-title">
@@ -299,6 +447,7 @@
 
     <section class="section shell" id="log" aria-labelledby="log-title">
       <div class="section-head"><div class="section-kicker">LEARNING LOG</div><div><h2 id="log-title">持续更新记录</h2><p class="section-intro">以后每完成一个重要练习，就在这里增加日期、任务、收获和下一步。</p></div></div>
+      <article class="log"><time datetime="2026-10-02">2026.10.02</time><div><h3>建立课程作业中心</h3><p>按LC5023、LC5025和LC5032区分正式作业与每周课堂任务，并记录截止时间、写作进度、支持材料和下一步行动。</p></div></article>
       <article class="log"><time datetime="2026-09-29">2026.09.29</time><div><h3>建立个人AI学习档案第一版</h3><p>重新定义网站用途，把课堂HTML练习转化成可长期积累、未来可用于培训展示的作品集。</p></div></article>
       <article class="log"><time datetime="2026-09-27">2026.09.27</time><div><h3>学习故事教学、AI提示词与偏见检查</h3><p>理解详细描述如何影响AI图片结果，并学习在教学材料中标记、核实和调整AI内容。</p></div></article>
       <article class="log"><time datetime="2026-09-20">2026.09.20</time><div><h3>把课程资料转化为学习工具</h3><p>完成课程截止日期视觉图和语言教学法双语词汇手册。</p></div></article>
@@ -306,5 +455,19 @@
   </main>
 
   <footer><div class="footer-row shell"><span>Jess AI Learning Lab · Learning in public, checking with care.</span><a href="https://github.com/1454003295a-cyber/jess">GitHub Repository</a></div></footer>
+  <script>
+    const filterButtons = document.querySelectorAll('.course-filter');
+    const courseBlocks = document.querySelectorAll('.course-block');
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const selectedCourse = button.dataset.filter;
+        filterButtons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        courseBlocks.forEach((course) => {
+          course.hidden = selectedCourse !== 'all' && course.dataset.course !== selectedCourse;
+        });
+      });
+    });
+  </script>
 </body>
 </html>
